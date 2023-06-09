@@ -1,19 +1,20 @@
 import os
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
-from google_auth_oauthlib.flow import InstalledAppFlow
+from google_auth_oauthlib.flow import InstalledAppFlow # local launch of api 
 from googleapiclient.discovery import build
 # optional
 import googleapiclient.errors
 # import HttpError
 
 
-CLIENT_FILE = './gmail-bot-yosemitie.json'
+CLIENT_FILE = 'gmail-bot-yosemite.json'
 SCOPES = ['https://mail.google.com/']
 
-creds = None
-if os.path.exists('token.jsoh'):
-    creds = Credentials.from_authorized_user_file('token.json', SCOPES)
+creds = None # access token
+
+if os.path.exists('token.json'):
+    credit = Credentials.from_authorized_user_file('gmail-bot-yosemite.json', SCOPES)
 
 if not creds or not creds.vali:
     if creds and creds.expired and creds.refresh_token:
